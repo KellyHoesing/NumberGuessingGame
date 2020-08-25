@@ -7,19 +7,27 @@ namespace NumberGuessingGame
         static void Main(string[] args)
         {
             var r = new Random();
-            var favNumber = r.Next(1, 1000);
-            var userInput = int.Parse(Console.ReadLine());
-
-            if (userInput < favNumber)
+            int favNumber = r.Next(1, 10);
+            bool win = false;
+            do
             {
-                Console.WriteLine($"Too Low!");
-            }
-            else if (userInput > favNumber)
-            {
-                Console.WriteLine($"Too High!");
-            }
-            else
-                Console.WriteLine($"Nevermind");
+                Console.WriteLine($"What is your Favorite Number?");
+                var a =int.Parse(Console.ReadLine());
+                if (a > favNumber)
+                {
+                    Console.WriteLine($"Too high!  Guess again!");
+                }
+                else if (a < favNumber)
+                {
+                    Console.WriteLine($"Too Low!  Guess again!");
+                }
+                else
+                {
+                    Console.WriteLine($"Good job!");
+                    win = true;
+                }
+            } 
+            while (win == false);
         }
     }
 }
